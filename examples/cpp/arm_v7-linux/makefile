@@ -30,3 +30,4 @@ clean:
 	$(RM) srv_resourceless
 	$(RM) apartner
 	$(RM) ppartner
+	$(RM) PLC-server-sim
