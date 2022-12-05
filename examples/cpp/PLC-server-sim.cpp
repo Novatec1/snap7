@@ -84,6 +84,7 @@ int main(int argc, char* argv[])
     int Error;
     Server = new TS7Server;
 
+    printf("Starting..\n");
     // Share some resources with our virtual PLC
 /*
     Server->RegisterArea(srvAreaDB,     // We are registering a DB
@@ -98,7 +99,8 @@ int main(int argc, char* argv[])
     Server->RegisterArea(srvAreaDB, 110, &DB110, sizeof(DB110));
     Server->RegisterArea(srvAreaDB, 204, &DB204, sizeof(DB204));
     Server->RegisterArea(srvAreaDB, 901, &DB901, sizeof(DB901));
-
+   
+    printf("After registration..\n");
     // We mask the read event to avoid the double trigger for the same event                  
     Server->SetEventsMask(~evcDataRead);
     Server->SetEventsCallback(EventCallBack, NULL);
@@ -107,7 +109,9 @@ int main(int argc, char* argv[])
     // Start the server onto the default adapter.
     // To select an adapter we have to use Server->StartTo("192.168.x.y").
     // Start() is the same of StartTo("0.0.0.0");
+    printf("Starting server..\n");
     Error=Server->Start();
+    printf("After server start, error is: %d\n",Error);
     if (Error==0)
     {
 	// Now the server is running ... wait a key to terminate
