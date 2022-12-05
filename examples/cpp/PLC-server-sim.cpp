@@ -34,7 +34,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <cstring>
+#include <unistd.h>
 #include "snap7.h"
+
+int keep_running = 1;
 
      TS7Server *Server;
      unsigned char DB21[512];  // Our DB1
@@ -115,7 +118,8 @@ int main(int argc, char* argv[])
     if (Error==0)
     {
 	// Now the server is running ... wait a key to terminate
-        getchar();
+	while (keep_running) pause();
+        // getchar();
     }
     else
         printf("%s\n",SrvErrorText(Error).c_str());
