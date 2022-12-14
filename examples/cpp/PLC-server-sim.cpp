@@ -51,7 +51,7 @@ int keep_running = 1;
 	unsigned char DB104[1280];  // Our DB2
 	unsigned char DB110[1280];  // Our DB2
 	unsigned char DB204[1280];  // Our DB2
-	unsigned char DB901[1280];  // Our DB2
+	unsigned char DB901[3300];  // Our DB2
 
 // Here we use the callback to show the log, this is not the best choice since
 // the callback is synchronous with the client access, i.e. the server cannot
